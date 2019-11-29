@@ -10,7 +10,7 @@
 <tal:def tal:define="data python:view.data; excludes view/excludes">
 
   <tal:cond condition="python:'title' not in excludes">
-    <small class="text-muted" i18n:translate="event_event">Event</small>
+    <h5 class="event-summary-heading" i18n:translate="event_event">Event</h5>
     <p>
       <a tal:attributes="href data/url" tal:content="data/title">title</a>
     </p>
@@ -18,7 +18,7 @@
 
   <tal:cond condition="python:'subjects' not in excludes">
   <tal:cond condition="data/subjects">
-    <small class="text-muted" i18n:translate="event_what">What</small>
+    <h5 class="event-summary-heading" i18n:translate="event_what">What</h5>
     <p>
       <span itemprop="eventType" tal:repeat="item data/subjects" tal:content="item" />
     </p>
@@ -26,18 +26,9 @@
   </tal:cond>
 
   <tal:cond condition="python:'date' not in excludes">
-    <small class="text-muted" i18n:translate="event_when">When</small>
+    <h5 class="event-summary-heading" i18n:translate="event_when">When</h5>
     <p>
-      <span tal:define="start_tzname data/timezone;
-                    start_utcdelta python:data.start.tzinfo.utcoffset(data.start);
-                    start_utcoffset python:(start_utcdelta.days*86400+start_utcdelta.seconds)*100/60/60;
-                    start_utcoffset python:int(start_utcoffset)">
-        <tal:date replace="structure python:view.formatted_date(context)" />
-        <span class="timezone"
-            tal:condition="start_tzname">
-          (<tal:tzname replace="start_tzname">timezone name</tal:tzname> / UTC<tal:tzoffset replace="start_utcoffset" />)
-        </span>
-      </span>
+      <tal:date replace="structure python:view.formatted_date(context)" />
     </p>
 
   </tal:cond>
@@ -46,7 +37,7 @@
   <tal:cond define="next_occs view/next_occurrences;
                     all_occs view/num_more_occurrences"
             condition="python:len(next_occs) > 1 or all_occs > 1">
-    <small class="text-muted" i18n:translate="">All dates</small>
+    <h5 class="event-summary-heading" i18n:translate="">All dates</h5>
     <p>
       <span tal:repeat="occ next_occs">
       <tal:def define="this_is_occ python: occ.absolute_url() == context.absolute_url()">
@@ -68,7 +59,7 @@
 
   <tal:cond condition="python:'location' not in excludes">
   <tal:cond condition="data/location">
-    <small class="text-muted" i18n:translate="event_where">Where</small>
+    <h5 class="event-summary-heading" i18n:translate="event_where">Where</h5>
     <p>
       <span itemprop="location" tal:content="data/location">Location</span>
     </p>
@@ -77,7 +68,7 @@
 
   <tal:cond condition="python:'contact' not in excludes">
   <tal:cond define="mail data/contact_email; name data/contact_name;" tal:condition="python:name or mail">
-    <small class="text-muted" i18n:translate="contact_name">Contact Name</small>
+    <h5 class="event-summary-heading" i18n:translate="contact_name">Contact Name</h5>
     <p>
       <a class="email" tal:condition="mail" tal:attributes="href string:mailto:${mail}" tal:content="name" />
       <span tal:condition="not:mail" tal:content="name" />
@@ -85,23 +76,24 @@
   </tal:cond>
 
   <tal:cond condition="data/contact_phone">
-    <small class="text-muted" i18n:translate="contact_phone">Contact Phone</small>
+    <h5 class="event-summary-heading" i18n:translate="contact_phone">Contact Phone</h5>
     <p>
       <span tal:content="data/contact_phone">Contact Phone</span>
     </p>
   </tal:cond>
 
   <tal:cond condition="data/attendees|nothing">
-    <small class="text-muted" i18n:translate="contact_attendees">Attendees</small>
+    <h5 class="event-summary-heading" i18n:translate="contact_attendees">Attendees</h5>
     <p>
-      <span itemprop="attendee" tal:repeat="item data/attendees" tal:content="item" />
+      <tal:attendees tal:repeat="item data/attendees">
+      <span tal:content="item">Attendee</span><br/>
+      </tal:attendees>
     </p>
-  </tal:cond>
   </tal:cond>
 
   <tal:cond condition="python:'event_url' not in excludes">
   <tal:cond condition="data/event_url">
-    <small class="text-muted" i18n:translate="event_url">Web</small>
+    <h5 class="event-summary-heading" i18n:translate="event_url">Web</h5>
     <p>
       <a href="" tal:attributes="href data/event_url" i18n:translate="external_website">Visit external website</a>
     </p>
@@ -109,7 +101,7 @@
   </tal:cond>
 
   <tal:cond condition="python:'ical' not in excludes">
-    <small class="text-muted" i18n:translate="heading_add_to_calendar">Add event to calendar</small>
+    <h5 class="event-summary-heading" i18n:translate="heading_add_to_calendar">Add event to calendar</h5>
     <p>
     <tal:span tal:define="here_url context/@@plone_context_state/object_url;
                     portal_url context/@@plone_portal_state/portal_url;">
