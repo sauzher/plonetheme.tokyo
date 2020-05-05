@@ -58,7 +58,7 @@
       <div id="portal-mainnavigation" tal:content="structure provider:plone.mainnavigation"></div>
     </header>
 
-    <section id="portal-content">
+    <section id="content">
 
       <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
 
