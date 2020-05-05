@@ -30,11 +30,10 @@ include/
 lib/
 local/
 parts/
-src/collective.sidebar/
+src/*
 test.plone_addon/
 var/
 share/
-src/collective.sidebar/
 .idea/
 .vscode/
 
@@ -56,6 +55,7 @@ report.html
 !.gitignore
 !.gitkeep
 !.travis.yml
+!src/plonetheme
 
 # Node & Grunt
 

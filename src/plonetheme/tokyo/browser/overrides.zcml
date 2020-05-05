@@ -66,11 +66,6 @@
       />
 
   <browser:jbot
-      directory="overrides/plone_app_z3cform"
-      layer="plonetheme.tokyo.interfaces.IPlonethemeTokyoLayer"
-      />
-
-  <browser:jbot
       directory="overrides/plone_batching"
       layer="z3c.form.interfaces.IFormLayer"
       />

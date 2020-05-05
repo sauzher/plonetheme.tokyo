@@ -1,0 +1,40 @@
+<div class="document-byline" i18n:domain="plone" tal:condition="view/show">
+
+  <p class="document-author" tal:define="creator_short_form view/creator; creator_long_form string:?author=${creator_short_form}; creator_is_openid python:'/' in creator_short_form; creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];" tal:condition="creator_short_form">
+    <span i18n:translate="label_document_created_by">Created by</span>:
+    <a href="#" tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}" tal:content="view/authorname" tal:omit-tag="python:view.author() is None">Roland Barthes</a>
+  </p>
+
+  <p class="document-state mb-3" tal:define="published view/pub_date; modified context/ModificationDate">
+
+    <span class="documentPublished" tal:condition="published">
+      <span i18n:translate="label_document_published">published</span>
+      <span class="pat-moment" data-pat-moment="format:relative;" tal:content="published">Published</span><tal:sep condition="modified">,</tal:sep>
+    </span>
+
+    <span class="documentModified" tal:condition="modified">
+      <span i18n:translate="label_document_last_modified">Last modified</span>:
+      <span class="pat-moment" data-pat-moment="format:relative;" tal:content="modified">Modified</span>
+    </span>
+
+  </p>
+
+  <p class="document-expired mb-3">
+    <tal:expired tal:condition="view/isExpired">
+      <span class="state-expired" i18n:translate="time_expired">expired</span>
+    </tal:expired>
+  </p>
+
+  <div class="document-contributors mb-3" tal:define="contributors context/Contributors" tal:condition="contributors">
+    <span i18n:translate="label_document_contributors">Contributors</span>:
+    <span tal:omit-tag="" tal:content="python: ', '.join(contributors)">Mary</span>
+  </div>
+
+  <div class="document-copyright mb-3">
+    <tal:rights tal:define="rights context/Rights" tal:condition="rights">
+      <div tal:replace="rights">Copyleft NiceCorp Inc.</div>
+    </tal:rights>
+  </div>
+
+</div>
+
