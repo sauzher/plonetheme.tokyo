@@ -28,7 +28,7 @@
 
           <div class="card-body">
 
-            <h5 class="card-title text-center">Autenticazione</h5>
+            <h5 class="card-title text-center">Autenticazione UniBa</h5>
 
             <form class="form-signin pat-formautofocus" action="." method="post"
                   tal:define="auth nocall:context/acl_users/credentials_cookie_auth|context/cookie_authentication|nothing;
@@ -100,7 +100,6 @@
 
         </div>
       </div>
-      <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" >
         <div class="card card-signin my-5">
 
@@ -116,7 +115,6 @@
                      tal:attributes="src string:${portal_url}/++plone++plonetheme.tokyo/ms-symbollockup_signin_light.png"/></a>
               </h5>
         </div>
-      </div>
       </div>
 
     </metal:main-macro>
