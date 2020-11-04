@@ -6,7 +6,9 @@
       lang="en"
       i18n:domain="plone"
       metal:use-macro="here/main_template/macros/master">
+      <head>
 
+</head>
 <body>
   <metal:main fill-slot="main">
     <metal:main-macro define-macro="login"
@@ -47,9 +49,18 @@
                        tal:attributes="name ac_name; id ac_name; value login_name;" />
                        <div class="discreet">Inserire la propria username del tipo
                        <code>nome.cognome</code> o le credenziali da studente Esse3 del tipo
-                       <code>n.cognome2</code>
+                       <code>n.cognome2</code>.
                        <br/>
+                       <br/>
+                       Studente <a href="" class="immat">pre-immatricolato? <span class="glyphicon glyphicon-arrow-down"/></a>
                        </div>
+                      <div></div>
+                      <script type="text/javascript">
+    $( "a.immat" ).on( "click", function( event ) {  $([document.documentElement, document.body]).animate({
+        scrollTop: $("#immat").offset().top
+    }, 1000); return false;} )
+                      </script>
+
                        <div>&nbsp;</div>
 
               </div>
@@ -83,7 +94,6 @@
 
           <div class="card-footer text-muted"
                tal:define="portal_state context/@@plone_portal_state; portal_url portal_state/portal_url">
-
             <div>
               <strong i18n:translate="trouble_logging_in" tal:omit-tag="">Trouble logging in?</strong>
               <a href="https://mondo.ict.uniba.it"
@@ -106,7 +116,9 @@
           <div class="card-body">
 
             <h5 class="card-title text-center">Autenticazione Microsoft</h5>
-               <p>Gli studenti "immatricolandi" devono autenticarsi con le credenziali <code>@unibari.onmicrosoft.com</code>
+               <p>Gli studenti
+               <a name="immatricolandi" id="immat">"pre-immatricolati"</a>
+               devono autenticarsi con le credenziali <code>@unibari.onmicrosoft.com</code>
                </p>
               <h5 class="card-title text-center" >
               <a href="" tal:attributes="href mslink">
