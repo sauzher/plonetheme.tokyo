@@ -9369,7 +9369,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 html body #content {
-  padding: 3rem 0;
+  padding: 3rem 0.5rem;
 }
 
 .portletSiteSetup {
