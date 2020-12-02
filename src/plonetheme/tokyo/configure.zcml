@@ -15,9 +15,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Tokyo Theme"
+      title="Tokyo Theme (forked UniBa)"
       directory="profiles/default"
-      description="Installs the plonetheme.tokyo add-on."
+      description="Installs the plonetheme.tokyo add-on. Forked for UniBa purposes"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.install"
       />

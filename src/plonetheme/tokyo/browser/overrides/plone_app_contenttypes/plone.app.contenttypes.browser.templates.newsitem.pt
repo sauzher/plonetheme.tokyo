@@ -8,36 +8,46 @@
       i18n:domain="plonetheme.tokyo">
 
 <body>
-  <metal:content-core fill-slot="main">
-    <div class="container">
-      <div class="row">
+<metal:main fill-slot="main">
 
-        <div class="col-md-8">
+  <div class="row">
 
-          <header>
-            <h1 class="documentFirstHeading" tal:content="context/title">Title</h1>
-            <div class="documentDescription" tal:content="context/description">Lorem ipsum dolor sit amet</div>
-          </header>
+    <div class="col-12">
 
-          <section id="section-text" tal:define="text context/text" tal:condition="text">
-            <div id="parent-fieldname-text" tal:content="structure python:context.text.output_relative_to(view.context)" />
-          </section>
+      <header>
 
-        </div>
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" />
 
-        <tal:define tal:define="image context/@@images/image|nothing; scales context/@@images" tal:condition="image">
-          <div class="col-md-4">
+        <h1 tal:content="context/title">Title</h1>
 
-            <figure class="newsitem-image" tal:define="img python:scales.scale('image', width=600, height=400, direction='down')">
-              <img class="img-fluid img-thumbnail" src="${img/url}" width="${img/width}" height="${img/height}">
-            </figure>
+        <p class="lead" tal:content="context/description" tal:condition="context/description">
+          Description
+        </p>
 
-          </div>
-        </tal:define>
+        <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
 
-      </div>
+      </header>
+
+      <section class="text-center mb-3" id="section-image" tal:define="image context/@@images/image|nothing; scales context/@@images" tal:condition="image">
+        <figure class="figure" tal:define="img python:scales.scale('image', width=800, height=800, direction='thumbnail')">
+          <img class="figure-img img-fluid" src="${img/url}" width="${img/width}" height="${img/height}">
+          <figcaption class="figure-caption" tal:condition="context/image_caption" tal:content="context/image_caption">Image caption</figcaption>
+        </figure>
+      </section>
+
+      <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
+
+      <section id="section-text" tal:define="text context/text" tal:condition="text">
+        <div id="parent-fieldname-text" tal:content="structure python:context.text.output_relative_to(view.context)" />
+      </section>
+
+      <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" />
+
     </div>
-  </metal:content-core>
+
+  </div>
+
+</metal:main>
 </body>
 
 </html>

@@ -2,10 +2,36 @@ Changelog
 =========
 
 
-0.5.0 (unreleased)
+0.6.0 (unreleased)
 ------------------
 
 - Nothing changed yet.
+
+
+0.5.0 (2020-10-06)
+------------------
+
+Added:
+
+- Added Bootstrap icons and make them available via bi-icon classes.
+  [santonelli]
+
+- Added templates for Plone's default content types.
+  [santonelli]
+
+Changed:
+
+- Changed container structure in main template.
+  [santonelli]
+
+- Changed pagination to use arrows instead of text.
+  [santonelli]
+
+- Update Bootstrap icons to 1.0.0.
+  [santonelli]
+
+- Bump version of collective.sidebar to 1.4.0.
+  [santonelli]
 
 
 0.4.0 (2020-04-20)

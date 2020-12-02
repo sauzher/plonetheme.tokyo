@@ -6,11 +6,11 @@
     :target: https://travis-ci.com/collective/plonetheme.tokyo
 
 
-===================================
-Plonetheme Tokyo (plonetheme.tokyo)
-===================================
+========================================
+Tokyo Theme for Plone (plonetheme.tokyo)
+========================================
 
-Plonetheme Tokyo implements Bootstrap 4 into Plone, with an emphasis on keeping things as close to "default" as possible.
+Tokyo Theme for Plone implements Bootstrap 4 into Plone, with an emphasis on keeping things as close to "default" as possible.
 
 .. image:: https://raw.githubusercontent.com/collective/plonetheme.tokyo/master/docs/screenshot_login.png
     :target: https://raw.githubusercontent.com/collective/plonetheme.tokyo/master/docs/screenshot_login.png
@@ -22,14 +22,16 @@ Plonetheme Tokyo implements Bootstrap 4 into Plone, with an emphasis on keeping 
 Features
 --------
 
-- No Diazo
-- No Barceloneta Dependencies
+- Responsive Mobile First Theme for Plone 5.2
+- No Dependencies to Barceloneta
+- No Diazo Rules
+- No Toolbar
+- No Portlets
 - Plone Patterns Still Persistent
-- Default Bootstrap 4 (Form Fields and Views)
+- Default Bootstrap 4 for Form Fields and Views
 - Bootstrap 4 Components and JavaScript Useable
-- Implements Full-Width "fluid" Fill-Slot (For Full-Width Content)
-- Compatible With https://github.com/collective/collective.sidebar
-- ...and More!
+- Bootstrap Icons available 
+- Uses https://github.com/collective/collective.sidebar
 
 
 Documentation
@@ -38,11 +40,18 @@ Documentation
 Full documentation for end users can be found in the "docs" folder.
 
 
+Credits
+-------
+
+This theme is developed and maintained by `operun Digital Solutions <https://www.operun.de>`_.
+
+
 Translations
 ------------
 
 This product has been translated into:
 
+- English (thanks, Netroxen)
 - German (thanks, santonelli)
 
 
