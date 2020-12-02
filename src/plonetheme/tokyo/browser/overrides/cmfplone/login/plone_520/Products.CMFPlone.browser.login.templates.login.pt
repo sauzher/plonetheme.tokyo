@@ -12,7 +12,7 @@
 <body>
   <metal:main fill-slot="main">
     <metal:main-macro define-macro="login"
-    tal:define="mslink nocall:context/@@mslogin"
+    tal:define="mslink nocall:context/@@mslogin |nothing"
     >
 
       <!-- Portal Messages -->
@@ -81,8 +81,9 @@
            <div class="card-header border text-muted">
                   Studente <a href="" class="immat">pre-immatricolato? <span class="glyphicon glyphicon-arrow-down"/></a>
            </div>
+           <div tal:condition="python: not mslink">auth microsoft non abilitata</div>
 
-          <div class="card-body">
+          <div class="card-body" tal:condition="mslink">
             <script type="text/javascript">
               $( "a.immat" ).on( "click", function( event ) {  $([document.documentElement, document.body]).animate({
                   scrollTop: $("#immat").offset().top
