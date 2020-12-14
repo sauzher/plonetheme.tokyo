@@ -38,7 +38,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'collective.sidebar',
+        'collective.sidebar==1.4.0',
         'plone.api>=1.8.4',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
